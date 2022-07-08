@@ -28,7 +28,7 @@ class App extends Component {
     else if (this.state.whichComponentToShow === "Breed") {
       return (
         <div className="App">
-          <div className="container" style={{ backgroundColor: "black" }}>
+          <div className="container d-flex justify-content-center my-3" style={{ backgroundColor: "black" }}>
             
             <button className="btn" onClick={() => {this.setState({ whichComponentToShow: "Votes" });}}>
               VOTES
