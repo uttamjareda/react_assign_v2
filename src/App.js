@@ -5,45 +5,60 @@ import Vote from "./Components/votes";
 import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 
 class App extends Component {
-  state = {whichComponentToShow: "Votes"};
+  state = { whichComponentToShow: "Breed" };
 
   render() {
-    if (this.state.whichComponentToShow === "Votes") {
+
+    if (this.state.whichComponentToShow === "Breed") {
       return (
         <div className="App">
-          <div className="rowC" style={{ backgroundColor: "black" }}>
+          <div className="container" style={{ backgroundColor: "black" }}>
             
-            <button className="btn">VOTES</button>
-            
-            <button className="btn" onClick={() => {this.setState({ whichComponentToShow: "Breed" });}}>
-              BREEDS</button>
+            <button className="btn"
+              onClick={() => {this.setState({ whichComponentToShow: "Votes" });}}>VOTES</button>
+
+            <button className="btn">BREEDS</button>
           
           </div>
-          {/* <br /> */}
-          <div className="rowC" style={{}}>
-            <button className="btn"><FaThumbsUp /> Like</button>
-            <button className="btn"><FaThumbsDown /> DisLike</button>
-          </div>
-          <br />
-          <Vote/>
-        </div>
-      );
-    } 
-    
-    else if (this.state.whichComponentToShow === "Breed") {
-      return (
-        <div className="App">
-          <div className="rowC" style={{ backgroundColor: "black" }}>
-            <button className="btn" onClick={() => {this.setState({ whichComponentToShow: "Votes" });}}
-              >VOTES</button>
-            
-            <button className="btn">BREEDS</button>
-          </div>
 
-          <div id="test1" class="col s12">{<Breeds />}</div>
+          <div id="test1" class="col s12">
+            {<Breeds />}
+          </div>
         </div>
       );
     }
+
+    else if (this.state.whichComponentToShow === "Votes") {
+      return (
+        <div className="App">
+          <div className="container" style={{ backgroundColor: "black" }}>
+            <button className="btn">VOTES</button>
+
+            <button
+              className="btn"
+              onClick={() => {
+                this.setState({ whichComponentToShow: "Breed" });
+              }}
+            >
+              BREEDS
+            </button>
+          </div>
+          <br />
+          <div className="container" style={{}}>
+            <button className="btn-green">
+              <FaThumbsUp /> Like
+            </button>
+            <button className="btn-red">
+              <FaThumbsDown /> DisLike
+            </button>
+          </div>
+          <br />
+          <Vote />
+        </div>
+      );
+    } 
+
+
     return null;
   }
 }
