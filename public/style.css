@@ -1,9 +1,53 @@
+.container {
+    padding: 2px 16px;
+    justify-content: center;
+  }
+
+
+.d-flex{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+}
+
+
+
+.my-3{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+
+/* other classes css */
+.text-center{
+    text-align: center;
+}
+
+.votescard{
+    margin: auto;
+}
+
+.justify-content-center{
+    justify-content: center;
+}
+
+.justify-content-evenly{
+    justify-content: space-evenly;
+}
+
+
+
+
+/* yha ke baad purani */
 .container{
     margin:auto
 }
 
 .card {
     /* width: 100%; */
+    /* max-width: 60%; */
+    width: max-content;
     border: solid black 1px;
     padding: 3px;
   }
@@ -16,9 +60,14 @@
 }
 
 
+.card-title{
+    font-size: large;
+}
+
 .card-text{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-family: 'Roboto Slab', serif; 
+    font-size: medium;
 }
 
 .btn{

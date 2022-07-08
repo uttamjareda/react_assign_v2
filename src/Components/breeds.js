@@ -37,20 +37,24 @@ const Breeds = () => {
   return (
     <>
       <Select options={options} onChange={changeHandler} />
-    <div className="card" style={{width: "18rem"}}>
+
+    <div className= "justify-content-center">
+        
+    <div className="card">
             <img src={selectedBreed.url} alt="" className="card-img" />
             <div className="card-body col">
-                <h5 className="card-title">{selectedBreed.name}</h5>
-                <h6 className="card-text">
+                <h4 className="card-title">{selectedBreed.name}</h4>
+                <p className="card-text">
                 {/* Bred Group: {bredGroup?bredGroup:"Data Unvailable"} <br /> */}
                 Height: {selectedBreed.metric_height} Cm  <br />
                 Weight: {selectedBreed.metric_weight} Kg<br />
                 Life Span: {selectedBreed.life_span} <br />
                 Origin: {selectedBreed.origin}
-                </h6>
+                </p>
             </div>
     </div>
 
+    </div>
 
     </>
   );

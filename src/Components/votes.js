@@ -1,42 +1,46 @@
 import React, { Component } from "react";
+import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
+// import spinner from "./spinner";
 
 export default class Vote extends Component {
   state = {
     loading: true,
-    dogo: null,
+    dogo: [],
+    imageurl:"",
     dogobreeds: null,
   };
 
   async componentDidMount() {
     const url =
-      "https://api.thedogapi.com/v1/images/search?api_key=e68c0c3f-806c-4077-acf2-d66e1f9c3ffd";
-    const response = await fetch(url);
-    const data = await response.json();
+      "https://api.thedogapi.com/v1/images/search?order=Rand";
+    const data = await fetch(url);
+    const parsedData = await data.json();
     this.setState({
-      dogo: data[0],
+      dogo: parsedData,
       loading: false,
-      dogobreeds: data[0].breeds[0],
+      imageurl:parsedData[0].url
     });
   }
 
   render() {
     return (
       <div>
-        {this.state.loading || !this.state.dogo ? (
-          <div>loading...</div>
-        ) : (
-          <div>
-            <img src={this.state.dogo.url} alt="error" margin="12px" height="500px"/>
-            <div
-              style={{
-                fontSize: 38,
-                fontFamily: "cursive",
-                fontWeight: "bold",
-              }}
-            >
-              {this.state.dogobreeds.name}
+        {this.state.loading || !this.state.dogo ? (<div>{/* for spinner */}</div>) : 
+        
+        (
+            <div className="container">
+            
+            <div className="container d-flex justify-content-evenly my-3">
+            <button className="btn-green"><FaThumbsUp /> Like</button>
+            <button className="btn-red"><FaThumbsDown /> DisLike</button>
             </div>
-          </div>
+
+            <div className="card votescard">
+            <img src={this.state.imageurl} alt="" className="card-img" />
+            </div>
+
+            </div>
+
         )}
       </div>
     );
